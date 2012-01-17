@@ -15,7 +15,7 @@ Finally I found what I was looking for -- a blog engine made for coders!
 + Creating a new blog post is as simple as ```rake new_post["title"]```
 + Re-Generating the markdown syntax with  ```rake watch```
 + Quick local previews with [POW](http://pow.cx)
-+ Publishing is also a one liner ```rake publish```
++ Publishing is also a one liner ```rake deploy```
 
 and finally: no more [WYSWIG](http://en.wikipedia.org/wiki/WYSIWIG) Hell:)
 
