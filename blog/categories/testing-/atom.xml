@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: testing, | Ramonskis Blog]]></title>
+  <link href="http://ramonski.github.com/blog/categories/testing-/atom.xml" rel="self"/>
+  <link href="http://ramonski.github.com/"/>
+  <updated>2012-01-20T11:42:37+01:00</updated>
+  <id>http://ramonski.github.com/</id>
+  <author>
+    <name><![CDATA[ramonski]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Continuous Integration with Jenkins]]></title>
+    <link href="http://ramonski.github.com/blog/2012/01/19/continuous-integration-with-jenkins/"/>
+    <updated>2012-01-19T10:55:00+01:00</updated>
+    <id>http://ramonski.github.com/blog/2012/01/19/continuous-integration-with-jenkins</id>
+    <content type="html"><![CDATA[<p>Jenkins is a opens source continuous integration server.</p>
+
+<p>This blog post will show you how</p>
+
+<ul>
+<li>to set up Jenkins in an Ubuntu 11.04 Virtual Box</li>
+<li>create a simple Git controlled Project with Jenkins</li>
+<li>run the build job</li>
+</ul>
+
+
+<!--more-->
+
+
+<h2>Build-Up</h2>
+
+<p>We are going to put Jenkins into a virtual Ubuntu 11.04 (Natty) Box.
+Therefore we use vagrant with our self made base box</p>
+
+<p><code>bash
+$ mkdir ~/develop/jenkins
+$ cd ~/develop/jenkins
+$ git init
+$ vagrant init 'myubuntubox'
+$ git add Vagrantfile
+</code></p>
+
+<p><strong>Note</strong>
+The <em>myubuntubox</em> is a self created base box made with <a href="https://github.com/jedi4ever/veewee">VeeWee</a>.
+For a complete instruction, how to quickly build a <a href="http://vagrantup.com/">Vagrant</a> base box, see
+<a href="http://seletz.github.com/blog/2012/01/17/creating-vagrant-base-boxes-with-veewee/">Stefan's Blogpost about VeeWee</a></p>
+
+<p>We need to customize the Vagrantfile a little bit for our needs:</p>
+
+<p>``` ruby</p>
+
+<h1>-<em>- mode: ruby -</em>-</h1>
+
+<p>Vagrant::Config.run do |config|</p>
+
+<pre><code>config.vm.define :jenkins do |jenkins|
+    jenkins.vm.box = "myubuntubox"
+    jenkins.vm.network "192.168.50.10"
+
+    # jenkins port
+    jenkins.vm.forward_port("jenkins", 8080, 8080)
+
+    # postinstall script
+    jenkins.vm.provision :shell, :path =&gt; "postinstall.sh"
+
+end
+</code></pre>
+
+<p>end</p>
+
+<h1>vim: set ft=ruby :</h1>
+
+<p>```</p>
+
+<p>Since we configured a <code>postinstall.sh</code> script provisioner, we need to create it
+as well:</p>
+
+<p>``` bash
+$ cat postinstall.sh</p>
+
+<h1>!/bin/bash</h1>
+
+<p>echo "postinstall script ran!" > /vagrant/postinstall.log</p>
+
+<p>$ git add postinstall.sh
+```</p>
+
+<p>And finally start the virtual box:</p>
+
+<p><code>bash
+$ vagrant up
+[jenkins] Importing base box 'myubuntubox'...
+...
+[jenkins] Running provisioner: Vagrant::Provisioners::Shell...
+[jenkins] stdin: is not a tty
+</code></p>
+
+<p>Check if our provisioner run:</p>
+
+<p><code>bash
+$ cat postinstall.log
+postinstall script ran!
+</code></p>
+
+<h2>Installation</h2>
+
+<p>Next we are going to install Jenkins into our Ubuntu box.  Therefore we are
+going to add the following lines into the <code>postinstall.sh</code></p>
+
+<p>``` bash</p>
+
+<h1>!/bin/bash</h1>
+
+<p>log=/vagrant/postinstall.log</p>
+
+<p>echo "postinstall script started!" > $log</p>
+
+<p>function info {</p>
+
+<pre><code>echo $(date +%D\ %T) $1 &gt;&gt; $log
+</code></pre>
+
+<p>}</p>
+
+<p>info "Adding convenient packages..."
+apt-get install -q -y vim | tee -a $log</p>
+
+<h1>Jenkins Installation</h1>
+
+<p>info "Adding Jenkins key to system..."
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - | tee -a $log</p>
+
+<p>info "Adding Jenkins source to /etc/apt/sources.list..."
+if grep "jenkins" /etc/apt/sources.list
+then</p>
+
+<pre><code>info "Jenkins source already in source.list"
+</code></pre>
+
+<p>else</p>
+
+<pre><code>echo "deb http://pkg.jenkins-ci.org/debian binary/" &gt;&gt; /etc/apt/sources.list
+</code></pre>
+
+<p>fi</p>
+
+<p>info "Updating apt source..."
+apt-get update | tee -a $log</p>
+
+<p>info "Installing Jenkins..."
+apt-get install -q -y jenkins | tee -a $log
+```</p>
+
+<p>This Script runs now every time on:</p>
+
+<p><code>bash
+$ vagrant up
+</code></p>
+
+<p>or, if the box is already running:</p>
+
+<p><code>bash
+$ vagrant provision
+</code></p>
+
+<h3>Recap -- What happened so far</h3>
+
+<ul>
+<li>We created a new <a href="http://www.ubuntu.com/download/server/download">Ubuntu 11.04 (Natty) Server</a> Box with <a href="http://vagrantup.com">Vagrant</a></li>
+<li>We created a <a href="http://vagrantup.com/docs/provisioners/shell.html">Vagrant Shell Provisioner</a></li>
+<li>We installed <a href="https://wiki.jenkins-ci.org">Jenkins</a> from the provided Ubuntu Package Repository</li>
+<li>Jenkins will be launched as a daemon <code>/etc/init.d/jenkins {start|stop|status|restart|force-reload}</code></li>
+<li>Logs will be located in <code>/var/log/jenkins/jenkins.log</code></li>
+<li>The config is in <code>/etc/default/jenkins</code></li>
+<li>Jenkins listens on port 8080</li>
+</ul>
+
+
+<p>If everything went good so far, we should be able to open up our favorite
+browser and go to <a href="http://localhost:8080">http://localhost:8080</a>.</p>
+
+<p>Congratulations, Jenkins is at your command!</p>
+
+<p>If something went wrong, check the <code>postinstall.log</code> and login to the virtual
+box with:</p>
+
+<p><code>bash
+$ vagrant ssh
+</code></p>
+
+<h2>Setting up your first Project</h2>
+
+<p>Our first project will be on GitHub, thus, we need to install the Git Plugin first.
+Go to the <a href="http://localhost:8080/pluginManager/available">Jenkins Plugin Manager</a>
+and select the <code>Git Plugin</code> and the <code>Github Plugin</code>.</p>
+
+<p>Click on "Download now and Install after restart".
+On the Installation Site, click the checkbox to restart Jenkins after Installation.</p>
+
+<p>Now we are ready to start our first Project.</p>
+
+<p>Click on <a href="http://localhost:8080/view/All/newJob">New Job</a> and select <em>Build a
+free-style software project</em>. Set the Job Name to <em>MyJob</em></p>
+
+<p>Set the following Values on the <a href="http://localhost:8080/job/MyJob/configure">Job configuration Site</a></p>
+
+<ul>
+<li>Projectname: MyJob</li>
+<li>Description: A simple test Job</li>
+<li>GitHub Project: https://github.com/ramonski/jenkins-server</li>
+<li>Git Repository Url: https://github.com/ramonski/jenkins-server.git</li>
+<li><strong>Important</strong> Check "Skip internal tag" Option, since we make anonymous checkouts</li>
+<li>Build trigger: Build when a change is pushed to GitHub and activate the
+checkbox to check the source code management system periodically. Add ther a
+line with <code>* * * * *</code> which basically means to check every minute.</li>
+<li>Select "Shell Script" for build</li>
+</ul>
+
+
+<h3>The Build Script</h3>
+
+<p>You can customize how to build your Project.
+Therefore you can use <a href="http://localhost:8080/env-vars.html">Environment Variables</a></p>
+
+<p>For testing, we echo the values of the build number and the build id into a file:</p>
+
+<p><code>
+cd $WORKSPACE
+echo "I'm build number $BUILD_NUMBER with the ID $BUILD_ID" &gt; buildinfo
+</code></p>
+
+<h3>First build</h3>
+
+<p>Ok, lets start our first build!
+Click on <a href="http://localhost:8080/job/MyJob/build?delay=0sec">build now</a></p>
+
+<p>The Build should be successful.</p>
+
+<p>You should be able to view the <a href="http://localhost:8080/job/MyJob/ws/buildinfo/*view*/">buildinfo</a>
+inside your workspace.</p>
+
+<h4>Troubleshooting</h4>
+
+<p>If your build failed, check the <a href="http://localhost:8080/job/MyJob/1/console">build log</a></p>
+
+<p>If you get the following error:</p>
+
+<p><code>
+Permission denied (publickey).
+fatal: The remote end hung up unexpectedly
+</code></p>
+
+<p>you probably set the Read+Write Repository URL in the Project Config. Log out
+from GitHub and take then the (Read Only) Repository URL.</p>
+
+<p>Another error could tell you this:</p>
+
+<p><code>
+Command "git tag -a -f -m Jenkins Build #3 jenkins-MyJob-3" returned status code 128:
+*** Please tell me who you are.
+</code></p>
+
+<p>then you probably forgot to set the "Skip internal tag" on the
+<a href="http://localhost:8080/job/MyJob/configure">Job configuration Site</a></p>
+
+<h2>Next Steps</h2>
+
+<p>Now it's time to prepare Jenkins for the real world.
+You probably don't want that everyone can maintain Jenkins through the Web.
+So you need to create some Users and give them the propert rights, or you can
+configure Jenkins to talk to your companies LDAP.</p>
+
+<p>If you plan to hook the Vagrant Box into your local Network, you can enable
+<a href="http://vagrantup.com/docs/bridged_networking.html">Bridged Networking in your Vagrant Config</a>.</p>
+
+<p>There are also a lot of other cool Plugins available for Jenkins, so check out your the
+<a href="http://localhost:8080/pluginManager/">Plugin Manager</a>.</p>
+
+<p>A collection of some plugins we use:</p>
+
+<ul>
+<li><p><a href="http://wiki.jenkins-ci.org/display/JENKINS/IRC+Plugin">Jenkins IRC Plugin</a>
+<em>This plugin is an IRC bot that can publish build results to IRC channels.</em></p></li>
+<li><p><a href="https://wiki.jenkins-ci.org/display/JENKINS/ChuckNorris+Plugin">ChuckNorris Plugin</a>
+<em>Displays a picture of Chuck Norris (instead of Jenkins the butler) and a
+random Chuck Norris 'The Programmer' fact on each build page.</em></p></li>
+<li><p><a href="http://wiki.jenkins-ci.org/display/JENKINS/Python+Plugin">Python Plugin</a>
+<em>Adds the ability to execute python scripts as build steps.</em></p></li>
+<li><p><a href="https://hudson.dev.java.net/plugin/jython/">Jython Plugin</a>
+<em>Adds the ability to execute Jython script as a build step in free-style
+software projects from within the JVM.</em></p></li>
+<li><p><a href="http://updates.jenkins-ci.org/download/plugins/">many more...</a></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
