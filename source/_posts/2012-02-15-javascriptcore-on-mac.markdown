@@ -9,11 +9,13 @@ published: true
 
 [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore) is the built-in JavaScript engine for WebKit
 
+
 You can find it here:
 
 ``` bash
 $ /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc
 ```
+<!--more-->
 
 You can symlink it somewhere to your $PATH for convenience:
 
