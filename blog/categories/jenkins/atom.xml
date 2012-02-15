@@ -4,7 +4,7 @@
   <title><![CDATA[Category: jenkins | Ramonskis Blog]]></title>
   <link href="http://ramonski.github.com/blog/categories/jenkins/atom.xml" rel="self"/>
   <link href="http://ramonski.github.com/"/>
-  <updated>2012-01-20T11:42:37+01:00</updated>
+  <updated>2012-02-15T09:45:11+01:00</updated>
   <id>http://ramonski.github.com/</id>
   <author>
     <name><![CDATA[ramonski]]></name>
@@ -63,7 +63,11 @@ For a complete instruction, how to quickly build a <a href="http://vagrantup.com
     jenkins.vm.network "192.168.50.10"
 
     # jenkins port
-    jenkins.vm.forward_port("jenkins", 8080, 8080)
+    # XXX: obsolete for Vagrant 0.9
+    # jenkins.vm.forward_port("jenkins", 8080, 8080)
+    # use this for Vagrant 0.9:
+    jenkins.vm.forward_port 80, 8080
+
 
     # postinstall script
     jenkins.vm.provision :shell, :path =&gt; "postinstall.sh"
@@ -295,6 +299,13 @@ random Chuck Norris 'The Programmer' fact on each build page.</em></p></li>
 <em>Adds the ability to execute Jython script as a build step in free-style
 software projects from within the JVM.</em></p></li>
 <li><p><a href="http://updates.jenkins-ci.org/download/plugins/">many more...</a></p></li>
+</ul>
+
+
+<h2>Changenotes</h2>
+
+<ul>
+<li>updated Vagrant File for Vagrant 0.9</li>
 </ul>
 
 ]]></content>
