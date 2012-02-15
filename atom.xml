@@ -4,7 +4,7 @@
   <title><![CDATA[Ramonskis Blog]]></title>
   <link href="http://ramonski.github.com/atom.xml" rel="self"/>
   <link href="http://ramonski.github.com/"/>
-  <updated>2012-02-15T09:45:11+01:00</updated>
+  <updated>2012-02-15T10:01:28+01:00</updated>
   <id>http://ramonski.github.com/</id>
   <author>
     <name><![CDATA[ramonski]]></name>
@@ -12,6 +12,72 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScriptCore on Mac]]></title>
+    <link href="http://ramonski.github.com/blog/2012/02/15/javascriptcore-on-mac/"/>
+    <updated>2012-02-15T09:48:00+01:00</updated>
+    <id>http://ramonski.github.com/blog/2012/02/15/javascriptcore-on-mac</id>
+    <content type="html"><![CDATA[<p><a href="http://trac.webkit.org/wiki/JavaScriptCore">JavaScriptCore</a> is the built-in JavaScript engine for WebKit</p>
+
+<p>You can find it here:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
+
+
+<p>You can symlink it somewhere to your $PATH for convenience:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/bin/jsc
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Time to test:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>jsc --help
+</span><span class='line'>Usage: jsc <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>files<span class="o">]</span> <span class="o">[</span>-- arguments<span class="o">]</span>
+</span><span class='line'>  -d         Dumps bytecode <span class="o">(</span>debug builds only<span class="o">)</span>
+</span><span class='line'>  -e         Evaluate argument as script code
+</span><span class='line'>  -f         Specifies a <span class="nb">source </span>file <span class="o">(</span>deprecated<span class="o">)</span>
+</span><span class='line'>  -h|--help  Prints this <span class="nb">help </span>message
+</span><span class='line'>  -i         Enables interactive mode <span class="o">(</span>default <span class="k">if </span>no files are specified<span class="o">)</span>
+</span><span class='line'>  -s         Installs signal handlers that <span class="nb">exit </span>on a crash <span class="o">(</span>Unix platforms only<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$ </span>jsc
+</span><span class='line'>&gt; var <span class="nv">foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>;
+</span><span class='line'>undefined
+</span><span class='line'>&gt; typeof<span class="o">(</span>foo<span class="o">)</span>;
+</span><span class='line'>string
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Changenotes</h2>
+
+<ul>
+<li>2012-02-15 created</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Continuous Integration with Jenkins]]></title>
