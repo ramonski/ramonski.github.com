@@ -4,7 +4,6 @@ title: "JavaScriptCore on Mac"
 date: 2012-02-15 09:48
 comments: true
 categories: [JavaScript Mac Shell]
-published: true
 ---
 
 [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore) is the built-in JavaScript engine for WebKit
