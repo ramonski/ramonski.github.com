@@ -46,7 +46,11 @@ Vagrant::Config.run do |config|
         jenkins.vm.network "192.168.50.10"
 
         # jenkins port
-        jenkins.vm.forward_port("jenkins", 8080, 8080)
+        # XXX: obsolete for Vagrant 0.9
+        # jenkins.vm.forward_port("jenkins", 8080, 8080)
+        # use this for Vagrant 0.9:
+        jenkins.vm.forward_port 80, 8080
+
 
         # postinstall script
         jenkins.vm.provision :shell, :path => "postinstall.sh"
@@ -267,3 +271,7 @@ A collection of some plugins we use:
   software projects from within the JVM.*
 
 - [many more...](http://updates.jenkins-ci.org/download/plugins/)
+
+## Changenotes
+
+- updated Vagrant File for Vagrant 0.9
