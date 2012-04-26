@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Ramonskis Blog]]></title>
+  <link href="http://ramonski.github.com/atom.xml" rel="self"/>
+  <link href="http://ramonski.github.com/"/>
+  <updated>2012-02-15T11:01:46+01:00</updated>
+  <id>http://ramonski.github.com/</id>
+  <author>
+    <name><![CDATA[ramonski]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScriptCore on Mac]]></title>
+    <link href="http://ramonski.github.com/blog/2012/02/15/javascriptcore-on-mac/"/>
+    <updated>2012-02-15T09:48:00+01:00</updated>
+    <id>http://ramonski.github.com/blog/2012/02/15/javascriptcore-on-mac</id>
+    <content type="html"><![CDATA[<p><a href="http://trac.webkit.org/wiki/JavaScriptCore">JavaScriptCore</a> is the built-in JavaScript engine for WebKit</p>
+
+<p>You can find it here:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
+
+
+<p>You can symlink it somewhere to your $PATH for convenience:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/bin/jsc
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Time to test:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>jsc --help
+</span><span class='line'>Usage: jsc <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>files<span class="o">]</span> <span class="o">[</span>-- arguments<span class="o">]</span>
+</span><span class='line'>  -d         Dumps bytecode <span class="o">(</span>debug builds only<span class="o">)</span>
+</span><span class='line'>  -e         Evaluate argument as script code
+</span><span class='line'>  -f         Specifies a <span class="nb">source </span>file <span class="o">(</span>deprecated<span class="o">)</span>
+</span><span class='line'>  -h|--help  Prints this <span class="nb">help </span>message
+</span><span class='line'>  -i         Enables interactive mode <span class="o">(</span>default <span class="k">if </span>no files are specified<span class="o">)</span>
+</span><span class='line'>  -s         Installs signal handlers that <span class="nb">exit </span>on a crash <span class="o">(</span>Unix platforms only<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$ </span>jsc
+</span><span class='line'>&gt; var <span class="nv">foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>;
+</span><span class='line'>undefined
+</span><span class='line'>&gt; typeof<span class="o">(</span>foo<span class="o">)</span>;
+</span><span class='line'>string
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Changenotes</h2>
+
+<ul>
+<li>2012-02-15 created</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Continuous Integration with Jenkins]]></title>
+    <link href="http://ramonski.github.com/blog/2012/01/19/continuous-integration-with-jenkins/"/>
+    <updated>2012-01-19T10:55:00+01:00</updated>
+    <id>http://ramonski.github.com/blog/2012/01/19/continuous-integration-with-jenkins</id>
+    <content type="html"><![CDATA[<p>Jenkins is a opens source continuous integration server.</p>
+
+<p>This blog post will show you how</p>
+
+<ul>
+<li>to set up Jenkins in an Ubuntu 11.04 Virtual Box</li>
+<li>create a simple Git controlled Project with Jenkins</li>
+<li>run the build job</li>
+</ul>
+
+
+<!--more-->
+
+
+<h2>Build-Up</h2>
+
+<p>We are going to put Jenkins into a virtual Ubuntu 11.04 (Natty) Box.
+Therefore we use vagrant with our self made base box</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>mkdir ~/develop/jenkins
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/develop/jenkins
+</span><span class='line'><span class="nv">$ </span>git init
+</span><span class='line'><span class="nv">$ </span>vagrant init <span class="s1">&#39;myubuntubox&#39;</span>
+</span><span class='line'><span class="nv">$ </span>git add Vagrantfile
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Note</strong>
+The <em>myubuntubox</em> is a self created base box made with <a href="https://github.com/jedi4ever/veewee">VeeWee</a>.
+For a complete instruction, how to quickly build a <a href="http://vagrantup.com/">Vagrant</a> base box, see
+<a href="http://seletz.github.com/blog/2012/01/17/creating-vagrant-base-boxes-with-veewee/">Stefan&#8217;s Blogpost about VeeWee</a></p>
+
+<p>We need to customize the Vagrantfile a little bit for our needs:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># -*- mode: ruby -*-</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Vagrant</span><span class="o">::</span><span class="no">Config</span><span class="o">.</span><span class="n">run</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="ss">:jenkins</span> <span class="k">do</span> <span class="o">|</span><span class="n">jenkins</span><span class="o">|</span>
+</span><span class='line'>        <span class="n">jenkins</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;myubuntubox&quot;</span>
+</span><span class='line'>        <span class="n">jenkins</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;192.168.50.10&quot;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1"># jenkins port</span>
+</span><span class='line'>        <span class="c1"># XXX: obsolete for Vagrant 0.9</span>
+</span><span class='line'>        <span class="c1"># jenkins.vm.forward_port(&quot;jenkins&quot;, 8080, 8080)</span>
+</span><span class='line'>        <span class="c1"># use this for Vagrant 0.9:</span>
+</span><span class='line'>        <span class="n">jenkins</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">forward_port</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">8080</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1"># postinstall script</span>
+</span><span class='line'>        <span class="n">jenkins</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="ss">:shell</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s2">&quot;postinstall.sh&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># vim: set ft=ruby :</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Since we configured a <code>postinstall.sh</code> script provisioner, we need to create it
+as well:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>cat postinstall.sh
+</span><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;postinstall script ran!&quot;</span> &gt; /vagrant/postinstall.log
+</span><span class='line'>
+</span><span class='line'><span class="nv">$ </span>git add postinstall.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And finally start the virtual box:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>vagrant up
+</span><span class='line'><span class="o">[</span>jenkins<span class="o">]</span> Importing base box <span class="s1">&#39;myubuntubox&#39;</span>...
+</span><span class='line'>...
+</span><span class='line'><span class="o">[</span>jenkins<span class="o">]</span> Running provisioner: Vagrant::Provisioners::Shell...
+</span><span class='line'><span class="o">[</span>jenkins<span class="o">]</span> stdin: is not a tty
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check if our provisioner run:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>cat postinstall.log
+</span><span class='line'>postinstall script ran!
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Installation</h2>
+
+<p>Next we are going to install Jenkins into our Ubuntu box.  Therefore we are
+going to add the following lines into the <code>postinstall.sh</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">log</span><span class="o">=</span>/vagrant/postinstall.log
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;postinstall script started!&quot;</span> &gt; <span class="nv">$log</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="k">function </span>info <span class="o">{</span>
+</span><span class='line'>    <span class="nb">echo</span> <span class="k">$(</span>date +%D<span class="se">\ </span>%T<span class="k">)</span> <span class="nv">$1</span> &gt;&gt; <span class="nv">$log</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>info <span class="s2">&quot;Adding convenient packages...&quot;</span>
+</span><span class='line'>apt-get install -q -y vim | tee -a <span class="nv">$log</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Jenkins Installation</span>
+</span><span class='line'>info <span class="s2">&quot;Adding Jenkins key to system...&quot;</span>
+</span><span class='line'>wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - | tee -a <span class="nv">$log</span>
+</span><span class='line'>
+</span><span class='line'>info <span class="s2">&quot;Adding Jenkins source to /etc/apt/sources.list...&quot;</span>
+</span><span class='line'><span class="k">if </span>grep <span class="s2">&quot;jenkins&quot;</span> /etc/apt/sources.list
+</span><span class='line'><span class="k">then</span>
+</span><span class='line'><span class="k">    </span>info <span class="s2">&quot;Jenkins source already in source.list&quot;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;deb http://pkg.jenkins-ci.org/debian binary/&quot;</span> &gt;&gt; /etc/apt/sources.list
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'>info <span class="s2">&quot;Updating apt source...&quot;</span>
+</span><span class='line'>apt-get update | tee -a <span class="nv">$log</span>
+</span><span class='line'>
+</span><span class='line'>info <span class="s2">&quot;Installing Jenkins...&quot;</span>
+</span><span class='line'>apt-get install -q -y jenkins | tee -a <span class="nv">$log</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This Script runs now every time on:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>vagrant up
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>or, if the box is already running:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>vagrant provision
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Recap &#8211; What happened so far</h3>
+
+<ul>
+<li>We created a new <a href="http://www.ubuntu.com/download/server/download">Ubuntu 11.04 (Natty) Server</a> Box with <a href="http://vagrantup.com">Vagrant</a></li>
+<li>We created a <a href="http://vagrantup.com/docs/provisioners/shell.html">Vagrant Shell Provisioner</a></li>
+<li>We installed <a href="https://wiki.jenkins-ci.org">Jenkins</a> from the provided Ubuntu Package Repository</li>
+<li>Jenkins will be launched as a daemon <code>/etc/init.d/jenkins {start|stop|status|restart|force-reload}</code></li>
+<li>Logs will be located in <code>/var/log/jenkins/jenkins.log</code></li>
+<li>The config is in <code>/etc/default/jenkins</code></li>
+<li>Jenkins listens on port 8080</li>
+</ul>
+
+
+<p>If everything went good so far, we should be able to open up our favorite
+browser and go to <a href="http://localhost:8080">http://localhost:8080</a>.</p>
+
+<p>Congratulations, Jenkins is at your command!</p>
+
+<p>If something went wrong, check the <code>postinstall.log</code> and login to the virtual
+box with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>vagrant ssh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting up your first Project</h2>
+
+<p>Our first project will be on GitHub, thus, we need to install the Git Plugin first.
+Go to the <a href="http://localhost:8080/pluginManager/available">Jenkins Plugin Manager</a>
+and select the <code>Git Plugin</code> and the <code>Github Plugin</code>.</p>
+
+<p>Click on &#8220;Download now and Install after restart&#8221;.
+On the Installation Site, click the checkbox to restart Jenkins after Installation.</p>
+
+<p>Now we are ready to start our first Project.</p>
+
+<p>Click on <a href="http://localhost:8080/view/All/newJob">New Job</a> and select <em>Build a
+free-style software project</em>. Set the Job Name to <em>MyJob</em></p>
+
+<p>Set the following Values on the <a href="http://localhost:8080/job/MyJob/configure">Job configuration Site</a></p>
+
+<ul>
+<li>Projectname: MyJob</li>
+<li>Description: A simple test Job</li>
+<li>GitHub Project: https://github.com/ramonski/jenkins-server</li>
+<li>Git Repository Url: https://github.com/ramonski/jenkins-server.git</li>
+<li><strong>Important</strong> Check &#8220;Skip internal tag&#8221; Option, since we make anonymous checkouts</li>
+<li>Build trigger: Build when a change is pushed to GitHub and activate the
+checkbox to check the source code management system periodically. Add ther a
+line with <code>* * * * *</code> which basically means to check every minute.</li>
+<li>Select &#8220;Shell Script&#8221; for build</li>
+</ul>
+
+
+<h3>The Build Script</h3>
+
+<p>You can customize how to build your Project.
+Therefore you can use <a href="http://localhost:8080/env-vars.html">Environment Variables</a></p>
+
+<p>For testing, we echo the values of the build number and the build id into a file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> <span class="nv">$WORKSPACE</span>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;I&#39;m build number $BUILD_NUMBER with the ID $BUILD_ID&quot;</span> &gt; buildinfo
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>First build</h3>
+
+<p>Ok, lets start our first build!
+Click on <a href="http://localhost:8080/job/MyJob/build?delay=0sec">build now</a></p>
+
+<p>The Build should be successful.</p>
+
+<p>You should be able to view the <a href="http://localhost:8080/job/MyJob/ws/buildinfo/*view*/">buildinfo</a>
+inside your workspace.</p>
+
+<h4>Troubleshooting</h4>
+
+<p>If your build failed, check the <a href="http://localhost:8080/job/MyJob/1/console">build log</a></p>
+
+<p>If you get the following error:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Permission denied <span class="o">(</span>publickey<span class="o">)</span>.
+</span><span class='line'>fatal: The remote end hung up unexpectedly
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>you probably set the Read+Write Repository URL in the Project Config. Log out
+from GitHub and take then the (Read Only) Repository URL.</p>
+
+<p>Another error could tell you this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Command <span class="s2">&quot;git tag -a -f -m Jenkins Build #3 jenkins-MyJob-3&quot;</span> returned status code 128:
+</span><span class='line'>*** Please tell me who you are.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then you probably forgot to set the &#8220;Skip internal tag&#8221; on the
+<a href="http://localhost:8080/job/MyJob/configure">Job configuration Site</a></p>
+
+<h2>Next Steps</h2>
+
+<p>Now it&#8217;s time to prepare Jenkins for the real world.
+You probably don&#8217;t want that everyone can maintain Jenkins through the Web.
+So you need to create some Users and give them the propert rights, or you can
+configure Jenkins to talk to your companies LDAP.</p>
+
+<p>If you plan to hook the Vagrant Box into your local Network, you can enable
+<a href="http://vagrantup.com/docs/bridged_networking.html">Bridged Networking in your Vagrant Config</a>.</p>
+
+<p>There are also a lot of other cool Plugins available for Jenkins, so check out your the
+<a href="http://localhost:8080/pluginManager/">Plugin Manager</a>.</p>
+
+<p>A collection of some plugins we use:</p>
+
+<ul>
+<li><p><a href="http://wiki.jenkins-ci.org/display/JENKINS/IRC+Plugin">Jenkins IRC Plugin</a>
+<em>This plugin is an IRC bot that can publish build results to IRC channels.</em></p></li>
+<li><p><a href="https://wiki.jenkins-ci.org/display/JENKINS/ChuckNorris+Plugin">ChuckNorris Plugin</a>
+<em>Displays a picture of Chuck Norris (instead of Jenkins the butler) and a
+random Chuck Norris &#8216;The Programmer&#8217; fact on each build page.</em></p></li>
+<li><p><a href="http://wiki.jenkins-ci.org/display/JENKINS/Python+Plugin">Python Plugin</a>
+<em>Adds the ability to execute python scripts as build steps.</em></p></li>
+<li><p><a href="https://hudson.dev.java.net/plugin/jython/">Jython Plugin</a>
+<em>Adds the ability to execute Jython script as a build step in free-style
+software projects from within the JVM.</em></p></li>
+<li><p><a href="http://updates.jenkins-ci.org/download/plugins/">many more&#8230;</a></p></li>
+</ul>
+
+
+<h2>Changenotes</h2>
+
+<ul>
+<li>updated Vagrant File for Vagrant 0.9</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GitHub powered Blog: Octopress rocks]]></title>
+    <link href="http://ramonski.github.com/blog/2012/01/17/new-blog-octopress-rocks/"/>
+    <updated>2012-01-17T14:26:00+01:00</updated>
+    <id>http://ramonski.github.com/blog/2012/01/17/new-blog-octopress-rocks</id>
+    <content type="html"><![CDATA[<p>Finally I found what I was looking for &#8211; a blog engine made for coders!</p>
+
+<!-- more -->
+
+
+<ul>
+<li>All my code and blog posts are hosted by GitHub</li>
+<li>Creating a new blog post is as simple as <code>rake new_post["title"]</code></li>
+<li>Re-Generating the markdown syntax with  <code>rake watch</code></li>
+<li>Quick local previews with <a href="http://pow.cx">POW</a></li>
+<li>Publishing is also a one liner <code>rake deploy</code></li>
+</ul>
+
+
+<p>and finally: no more <a href="http://en.wikipedia.org/wiki/WYSIWIG">WYSWIG</a> Hell:)</p>
+
+<p>For more info, go to: <a href="http://octopress.org">Octopress &#8211; A blogging framework for hackers</a></p>
+
+<p>Special thanx to <a href="http://seletz.github.com">seletz</a> for finding this tool;)</p>
+]]></content>
+  </entry>
+  
+</feed>

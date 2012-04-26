@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: github | Ramonskis Blog]]></title>
+  <link href="http://ramonski.github.com/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://ramonski.github.com/"/>
+  <updated>2012-02-15T11:01:46+01:00</updated>
+  <id>http://ramonski.github.com/</id>
+  <author>
+    <name><![CDATA[ramonski]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[GitHub powered Blog: Octopress rocks]]></title>
+    <link href="http://ramonski.github.com/blog/2012/01/17/new-blog-octopress-rocks/"/>
+    <updated>2012-01-17T14:26:00+01:00</updated>
+    <id>http://ramonski.github.com/blog/2012/01/17/new-blog-octopress-rocks</id>
+    <content type="html"><![CDATA[<p>Finally I found what I was looking for -- a blog engine made for coders!</p>
+
+<!-- more -->
+
+
+<ul>
+<li>All my code and blog posts are hosted by GitHub</li>
+<li>Creating a new blog post is as simple as <code>rake new_post["title"]</code></li>
+<li>Re-Generating the markdown syntax with  <code>rake watch</code></li>
+<li>Quick local previews with <a href="http://pow.cx">POW</a></li>
+<li>Publishing is also a one liner <code>rake deploy</code></li>
+</ul>
+
+
+<p>and finally: no more <a href="http://en.wikipedia.org/wiki/WYSIWIG">WYSWIG</a> Hell:)</p>
+
+<p>For more info, go to: <a href="http://octopress.org">Octopress -- A blogging framework for hackers</a></p>
+
+<p>Special thanx to <a href="http://seletz.github.com">seletz</a> for finding this tool;)</p>
+]]></content>
+  </entry>
+  
+</feed>
