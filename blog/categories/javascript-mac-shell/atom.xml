@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: JavaScript Mac Shell | Ramonskis Blog]]></title>
+  <link href="http://ramonski.github.com/blog/categories/javascript-mac-shell/atom.xml" rel="self"/>
+  <link href="http://ramonski.github.com/"/>
+  <updated>2012-02-15T11:01:46+01:00</updated>
+  <id>http://ramonski.github.com/</id>
+  <author>
+    <name><![CDATA[ramonski]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScriptCore on Mac]]></title>
+    <link href="http://ramonski.github.com/blog/2012/02/15/javascriptcore-on-mac/"/>
+    <updated>2012-02-15T09:48:00+01:00</updated>
+    <id>http://ramonski.github.com/blog/2012/02/15/javascriptcore-on-mac</id>
+    <content type="html"><![CDATA[<p><a href="http://trac.webkit.org/wiki/JavaScriptCore">JavaScriptCore</a> is the built-in JavaScript engine for WebKit</p>
+
+<p>You can find it here:</p>
+
+<p><code>bash
+$ /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc
+</code></p>
+
+<!--more-->
+
+
+<p>You can symlink it somewhere to your $PATH for convenience:</p>
+
+<p><code>bash
+$ sudo ln -s /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc /usr/bin/jsc
+</code></p>
+
+<p>Time to test:</p>
+
+<p>``` bash
+$ jsc --help
+Usage: jsc [options] [files] [-- arguments]
+  -d         Dumps bytecode (debug builds only)
+  -e         Evaluate argument as script code
+  -f         Specifies a source file (deprecated)
+  -h|--help  Prints this help message
+  -i         Enables interactive mode (default if no files are specified)
+  -s         Installs signal handlers that exit on a crash (Unix platforms only)</p>
+
+<p>$ jsc</p>
+
+<blockquote><p>var foo = "bar";
+undefined
+typeof(foo);
+string
+```</p></blockquote>
+
+<h2>Changenotes</h2>
+
+<ul>
+<li>2012-02-15 created</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
