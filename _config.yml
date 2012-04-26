@@ -75,6 +75,9 @@ twitter_tweet_button: true
 google_plus_one: true
 google_plus_one_size: medium
 
+# Coderwall
+coderwall_user: ramonski
+
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
 googleplus_user: 116699599508780917664
