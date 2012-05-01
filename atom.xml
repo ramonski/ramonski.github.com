@@ -4,7 +4,7 @@
   <title><![CDATA[Ramonskis Blog]]></title>
   <link href="http://ramonski.github.com/atom.xml" rel="self"/>
   <link href="http://ramonski.github.com/"/>
-  <updated>2012-02-15T11:01:46+01:00</updated>
+  <updated>2012-04-26T12:40:32+02:00</updated>
   <id>http://ramonski.github.com/</id>
   <author>
     <name><![CDATA[ramonski]]></name>
@@ -12,6 +12,356 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iTunes Store hacked?]]></title>
+    <link href="http://ramonski.github.com/blog/2012/04/26/itunes-store-hacked/"/>
+    <updated>2012-04-26T09:38:00+02:00</updated>
+    <id>http://ramonski.github.com/blog/2012/04/26/itunes-store-hacked</id>
+    <content type="html"><![CDATA[<p>oder warum bucht mir der iTunes Store seltsame Beträge von der Kreditkarte?</p>
+
+<p><em>Ich bin Apple-Addict, kein Zweifel und bin bisher davon ausgegangen, dass
+Apple ihre Daten im Griff haben. Aber seit vorgestern bin ich da etwas
+anderer Meinung&#8230;</em></p>
+
+<!-- more -->
+
+
+<p>Ich kaufe immer wieder mal im iTunes Store ein, sei es Musik, Apps oder Bücher,
+und war immer beeindruckt, wie unkompliziert das alles funktioniert. Man sucht
+sich was schönes aus, klickt auf &#8220;Kaufen&#8221;, bekommt per Mail eine Rechnung
+mit dem Artikel und Betrag und irgendwann wird einem die Kreditkarte mit dem
+entsprechenden Betrag belastet. Ziemlich coole Sache&#8230;</p>
+
+<p>Natürlich schau ich immer wieder mal ins Online Banking und seh wie mir
+<strong>APPLE ITUNES STORE EUR/LUXEMBOURG</strong>
+meine ganzen Einkäufe von der Kreditkarte abgezogen hat.</p>
+
+<p>So auch am 24.04.2012 und siehe da:</p>
+
+<p><img src="http://ramonski.github.com/downloads/images/visa.jpg"></p>
+
+<p>ok, die 0,79€ konnte ich noch zuordnen, wollen wir mal nicht übertreiben&#8230;</p>
+
+<p>Natürlich war ich etwas überrascht, sind ja immerhin fast 170,- Eurosen.
+Auf jeden Fall hab ich erstmal meine Einkäufe gecheckt!</p>
+
+<p>iTunes -> iTunes Store -> Account -> Einkaufsstatistik</p>
+
+<p><img src="http://ramonski.github.com/downloads/images/itunes-account.jpg"></p>
+
+<p>Und siehe da, außer der App für 0,79€ nichts drin, zumindestens mal nichts
+weiters am 21.04.2012 für die anscheinend die Rechnungen sind</p>
+
+<p><img src="http://ramonski.github.com/downloads/images/itunes-purchase-statistic.jpg"></p>
+
+<p>Also suche ich weiter, kann ja nicht sein, dass Apple was falsch macht, muss
+bestimmt mein Fehler gewesen sein&#8230; Also stöber ich weiter in meinen Einkäufen&#8230;</p>
+
+<p>iTunes -> Einkäufe -> Vorherige Einkäufe laden</p>
+
+<p><img src="http://ramonski.github.com/downloads/images/itunes-purchases.jpg"></p>
+
+<p>Aber irgendwie werde ich da auch nicht fündig, obwohl ich mir alle anzeigen
+lasse, auch die, die nicht auf meinem Mac/iPhone/iPad sind.</p>
+
+<p><img src="http://ramonski.github.com/downloads/images/itunes-purchases-all.jpg"></p>
+
+<p>Ok, whatzup? Ich entschließe mich erstmal meine Kreditkarte aus meinem Account
+zu löschen und mein Passwort zu ändern, also wieder zurück zu:</p>
+
+<p>iTunes -> iTunes Store -> Account</p>
+
+<p><img src="http://ramonski.github.com/downloads/images/itunes-remove-creditcard.jpg"></p>
+
+<p>und bei den Zahlungsdaten auf den Button &#8220;Keine&#8221; klicken.
+Dann noch auf &#8220;Bearbeiten&#8221; neben der Apple ID klicken und das Passwort ändern.</p>
+
+<p>Nachdem ich den ersten Schock verdaut hatte, hab ich mich mal an den Apple
+Support per Mail gewendet.  Hab in der Mail die Sachlage erklärt, die
+Abrechnungen reinkopiert und um Hilfe gebeten. Keine 2 Stunden später kam auch schon
+eine Anwort:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Lieber Herr Bartl,
+</span><span class='line'>
+</span><span class='line'>Vielen Dank, dass Sie den iTunes Store Support kontaktiert und uns Ihr Anliegen
+</span><span class='line'>mitgeteilt haben. Mein Name ist  Eva  und ich freue mich Ihnen als iTunes Store
+</span><span class='line'>Support Assistentin zur Seite zu stehen.
+</span><span class='line'>
+</span><span class='line'>Wenn ich richtig verstehe, wurde Ihre Kredit Karte für Einkäufe verwendet , die
+</span><span class='line'>Sie nicht getätigt haben.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Nope, es wurde <strong>nichts</strong> eingekauft, hätte ich ja gesehen (siehe oben),
+sondern nur berechnet&#8230;</p>
+
+<p>aber weiter im Text:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Und für diese möchten Sie verständlicherweise nicht aufkommen möchten.
+</span><span class='line'>
+</span><span class='line'>Ich kann gut nachvollziehen, wie beunruhigt Sie über einen solchen Vorfall sein
+</span><span class='line'>müssen.
+</span><span class='line'>
+</span><span class='line'>Bitte wenden Sie sich so schnell wie möglich an Ihr Kreditkarteninstitut und
+</span><span class='line'>erkundigen Sie sich nach Möglichkeiten, die Karte oder das Konto zu sperren und
+</span><span class='line'>die nicht berechtigten Transaktionen zu widerrufen.
+</span><span class='line'>
+</span><span class='line'>Sie sollten ebenfalls darum bitten, eine Untersuchung der Sicherheit Ihres
+</span><span class='line'>Kontos anzustrengen. Unter den gegebenen Umständen, ohne Vorliegen einer
+</span><span class='line'>Ausgleichsbuchungsanweisung Ihres Kreditkarteninstituts,  kann der iTunes Store
+</span><span class='line'>den Betrag für diese Einkäufe leider nicht zurückbuchen.
+</span><span class='line'>
+</span><span class='line'>Wenn Sie glauben, möglicherweise Opfer eines Identitätsdiebstahls geworden zu
+</span><span class='line'>sein, sollten Sie die folgenden Schritte erwägen:
+</span><span class='line'>
+</span><span class='line'>- Wenden Sie sich an die nächste Polizeidienststelle, um den
+</span><span class='line'>  Identitätsdiebstahl zu melden.
+</span><span class='line'>
+</span><span class='line'>- Schließen Sie die Accounts, von denen Sie glauben, dass sie ohne Ihr Wissen
+</span><span class='line'>  verwendet wurden.
+</span><span class='line'>
+</span><span class='line'>Wenn Sie keinen iTunes Store Account besitzen, betrachten Sie den Rest dieser
+</span><span class='line'>E-Mail bitte als gegenstandslos.
+</span><span class='line'>
+</span><span class='line'>Wenn Sie einen iTunes Store Account besitzen und vermuten, dass Ihre
+</span><span class='line'>Kreditkarte in betrügerischer Absicht für Einkäufe im iTunes Store verwendet
+</span><span class='line'>wird, empfehle ich Ihnen dringend, Ihr Account-Kennwort umgehend zu ändern.
+</span><span class='line'>
+</span><span class='line'>Durch die Änderung Ihres Kennworts kann verhindert werden, dass Dritte Ihren
+</span><span class='line'>iTunes Store Account ohne Ihr Wissen für die Aufgabe von Bestellungen nutzen
+</span><span class='line'>können. Um die Sicherheit Ihres Accounts zu erhöhen, wählen Sie bitte ein
+</span><span class='line'>Kennwort, das niemand außer Ihnen kennt und das Sie nicht bereits für einen
+</span><span class='line'>anderen Online-Account verwenden. Das Kennwort sollte sowohl Buchstaben als
+</span><span class='line'>auch Zahlen enthalten und mindestens acht Zeichen haben.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ok, dass ich dafür nicht aufkommen möchte ist richtig&#8230;</p>
+
+<p>Da sich schon vorgemerkte Umsätze bei meiner Kreditkarte ankündigten,
+entschließe ich mich, meine Kredikarte zu sperren. Das ging relativ einfach.
+Anrufen, Fax schicken mit den falsch abgebuchten Beträgen und der <strong>wichtige</strong>
+Hinweis dazu:</p>
+
+<p><strong>nicht getätigt, nicht genehmigt</strong></p>
+
+<p>der Herr am Telefon informiert mich dann noch, dass meine Kreditkarte ab jetzt
+geperrt ist, und ich in den nächsten Tagen eine Neue bekomme&#8230; Zum Glück brauch
+ich die Karte im Moment nicht wirklich&#8230;</p>
+
+<p>Soweit hat mich das ganze Theater schon mindestens 3 Stunden gekostet, die mir
+niemand zahlt, aber egal, ich schreibe eine Email zurück an den Support:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Hallo,
+</span><span class='line'>
+</span><span class='line'>vielen Dank erstmal für die schnelle Antwort.
+</span><span class='line'>
+</span><span class='line'>  &gt; Wenn ich richtig verstehe, wurde Ihre Kredit Karte für Einkäufe verwendet , die
+</span><span class='line'>  &gt; Sie nicht getätigt haben.
+</span><span class='line'>
+</span><span class='line'>soweit ich sehe wurden *keine* Einkäufe getätigt, sondern *nur* abgebucht.
+</span><span class='line'>
+</span><span class='line'>Mein letzter Einkauf, laut iTunes Einkaufsstatistik, war tatsächlich am
+</span><span class='line'>21.04.2012: Hacker News Pro App für 0,79€ und sonst *keine* weiteren
+</span><span class='line'>
+</span><span class='line'>Ich sehe auch keine anderen gekauften Artikel über iTunes, weder Musik, Apps,
+</span><span class='line'>Bücher und ich lasse mir alle anzeigen, auch die, die nicht auf meinem
+</span><span class='line'>Computer/iPhone/iPad sind.
+</span><span class='line'>
+</span><span class='line'>  &gt; Bitte wenden Sie sich so schnell wie möglich an Ihr Kreditkarteninstitut und
+</span><span class='line'>  &gt; erkundigen Sie sich nach Möglichkeiten, die Karte oder das Konto zu sperren und
+</span><span class='line'>  &gt; die nicht berechtigten Transaktionen zu widerrufen.
+</span><span class='line'>
+</span><span class='line'>Es scheint mir hier kein Missbrauch vorzuliegen, daher frage ich mich, ob ich
+</span><span class='line'>jetzt hier wirklich mein Konto sperren lassen muss?  Es sieht mir eher danach
+</span><span class='line'>aus, dass in der iTunes Rechnungsabteilung was schief gelaufen ist.
+</span><span class='line'>
+</span><span class='line'>Ebenso sehen die Beträge ziemlich komisch aus:
+</span><span class='line'>
+</span><span class='line'>23.04.12  21.04.12  APPLE ITUNES STORE EUR / LUXEMBOURG      -23,97
+</span><span class='line'>23.04.12  21.04.12  APPLE ITUNES STORE EUR / LUXEMBOURG      -23,95
+</span><span class='line'>23.04.12  21.04.12  APPLE ITUNES STORE EUR / LUXEMBOURG      -23,97
+</span><span class='line'>23.04.12  21.04.12  APPLE ITUNES STORE EUR / LUXEMBOURG      -23,96
+</span><span class='line'>23.04.12  21.04.12  APPLE ITUNES STORE EUR / LUXEMBOURG      -23,95
+</span><span class='line'>23.04.12  21.04.12  APPLE ITUNES STORE EUR / LUXEMBOURG      -39,99
+</span><span class='line'>
+</span><span class='line'>Haben Sie eine Möglichkeit einzusehen für welche Artikel diese Abbuchungen gemacht wurden?</span></code></pre></td></tr></table></div></figure>
+
+
+<p>natürlich war mein Konto schon gesperrt, aber man muss ja verdeutlichen, dass
+es <strong>Aufwand</strong> ist&#8230;</p>
+
+<p>Die Antwort kam am selben Tag:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Lieber Herr Bartl,
+</span><span class='line'>
+</span><span class='line'>Ich bedanke mich vielmals für Ihre Rückantwort.
+</span><span class='line'>
+</span><span class='line'>Natürlich kann ich Ihre Verwirrung über die Rechnungen die Sie erhalten haben
+</span><span class='line'>sehr gut nachvollziehen.
+</span><span class='line'>
+</span><span class='line'>Deshalb kann ich Ihnen nur mitteilen dass auf Ihrem iTunes Account keinerlei
+</span><span class='line'>Einkäufe mit Ihrer Kredit Karte getätigt wurden. Deshalb kann ich Ihnen keine
+</span><span class='line'>weigern Informationen zu den Rechnungen geben.
+</span><span class='line'>
+</span><span class='line'>Die Kollegen von Visa (Ihrem Kredit Karten Unternehmen ) hingegen können Ihnen
+</span><span class='line'>Informationen über diese Einkäufe erteilen.
+</span><span class='line'>
+</span><span class='line'>Und falls Sie geschädigt worden sind, gleich eine Rückerstattung einleiten.
+</span><span class='line'>
+</span><span class='line'>Sie können die hier vorliegende Korresondenz gerne für die weitere
+</span><span class='line'>Kommunikation mit den Kollegen verwenden.
+</span><span class='line'>
+</span><span class='line'>Es tut mir leid, dass ich Ihnen hierzu keine weiteren Auskunft geben kann. Ich
+</span><span class='line'>hoffe die Information war für Sie trotzdem hilfreich.
+</span><span class='line'>
+</span><span class='line'>Und ich bedanke mich für Ihre Verständnis, Herr Bartl.
+</span><span class='line'>
+</span><span class='line'>Falls Sie noch weitere Fragen haben, zögern Sie bitte nicht mich erneut zu
+</span><span class='line'>kontaktieren.
+</span><span class='line'>
+</span><span class='line'>Und ich wünsche Ihnen noch einen spannenden aber stressfreien Verlauf der
+</span><span class='line'>Woche.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Also, ich fasse zusammen:</p>
+
+<ul>
+<li><p>Es wurden <strong>keine</strong> Einkäufe mit meiner Kreditkarte gemacht</p></li>
+<li><p>Apple kann mir <strong>nicht</strong> sagen, für was die Abbuchungen gemacht wurden</p></li>
+<li><p>mir bleibt <strong>nichts</strong> anderes übrig, ausser alles zu sperren&#8230;</p></li>
+</ul>
+
+
+<p>jetzt frage ich mich also:</p>
+
+<p>Wenn nicht Apple, wer bucht sonst mit <strong>APPLE ITUNES STORE EUR/LUXEMBOURG</strong> von
+meiner Kreditkarte ab??</p>
+
+<p>Wurde der iTunes Store gehackt? (Kann jeder mal für sich selbst googlen&#8230;)</p>
+
+<p>Und viel wichtiger, wer entschädigt meinen Aufwand, den ich mit disem
+^=#*!?§$!!$%$&amp; hatte?</p>
+
+<p>Ich werde da mal nochmal beim iTunes Store Support fragen, und euch natürlich
+auf dem Laufenden halten;)</p>
+
+<p>Für jetzt kann ich nur Empfehlen: <strong>Checkt eure Kreditkarten Rechnungen und löscht
+sie am Besten aus euren Account raus, besser is das!</strong></p>
+
+<p>Ach und noch was, solltet ihr das gleiche erlebt haben, schreibt doch einen
+Kommentar, ich glaube nämlich nicht dass ich der Einzige bin dem das passiert
+ist!</p>
+
+<p>Cheers, ramonski</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JavaScriptCore on Mac]]></title>
