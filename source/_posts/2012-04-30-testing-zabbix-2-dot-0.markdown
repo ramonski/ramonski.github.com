@@ -4,6 +4,7 @@ title: "Testing Zabbix 2.0"
 date: 2012-04-30 17:21
 comments: true
 categories:
+published: false
 ---
 
 Today I'm going to test Zabbix 2.0 on a Ubuntu 11.10 VirtualBox.
