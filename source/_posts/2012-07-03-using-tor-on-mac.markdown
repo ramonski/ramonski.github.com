@@ -4,7 +4,7 @@ title: "Using Tor on Mac"
 date: 2012-07-03 19:00
 comments: true
 categories: web, mac
-published: false
+published: true
 ---
 
 Anonymity Online on Mac with Tor
