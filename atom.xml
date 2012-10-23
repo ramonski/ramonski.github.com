@@ -4,7 +4,7 @@
   <title><![CDATA[Ramonskis Blog]]></title>
   <link href="http://ramonski.github.com/atom.xml" rel="self"/>
   <link href="http://ramonski.github.com/"/>
-  <updated>2012-04-26T12:40:32+02:00</updated>
+  <updated>2012-07-09T18:50:52+02:00</updated>
   <id>http://ramonski.github.com/</id>
   <author>
     <name><![CDATA[ramonski]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Tor on Mac]]></title>
+    <link href="http://ramonski.github.com/blog/2012/07/03/using-tor-on-mac/"/>
+    <updated>2012-07-03T19:00:00+02:00</updated>
+    <id>http://ramonski.github.com/blog/2012/07/03/using-tor-on-mac</id>
+    <content type="html"><![CDATA[<p>Anonymity Online on Mac with Tor</p>
+
+<!-- more -->
+
+
+<h1>Prerequisites</h1>
+
+<p>You need Homebrew on your Mac</p>
+
+<p>http://mxcl.github.com/homebrew</p>
+
+<h1>Installation</h1>
+
+<p>Installation using brew:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>brew install tor
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can start tor automatically on login with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir -p ~/Library/LaunchAgents
+</span><span class='line'>cp /usr/local/Cellar/tor/0.2.2.37/homebrew.mxcl.tor.plist ~/Library/LaunchAgents/
+</span><span class='line'>launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Running</h1>
+
+<p>Starting Tor in the foreground:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>/usr/local/Cellar/tor/0.2.2.37/bin/tor
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Configure SOCKS Proxy</h1>
+
+<p>Go to the Network Settings and configure the SOCKS Proxy to 127.0.0.1:9050</p>
+
+<p><img src="http://ramonski.github.com/downloads/images/socks-proxy.jpg"></p>
+
+<h1>Check</h1>
+
+<p>Just visit: https://check.torproject.org</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[iTunes Store hacked?]]></title>
