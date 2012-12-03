@@ -4,7 +4,7 @@
   <title><![CDATA[Ramonskis Blog]]></title>
   <link href="http://ramonski.github.com/atom.xml" rel="self"/>
   <link href="http://ramonski.github.com/"/>
-  <updated>2012-07-09T18:50:52+02:00</updated>
+  <updated>2012-12-03T15:35:45+01:00</updated>
   <id>http://ramonski.github.com/</id>
   <author>
     <name><![CDATA[ramonski]]></name>
@@ -12,6 +12,480 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Sencha Cmd]]></title>
+    <link href="http://ramonski.github.com/blog/2012/12/03/sencha-command/"/>
+    <updated>2012-12-03T11:49:00+01:00</updated>
+    <id>http://ramonski.github.com/blog/2012/12/03/sencha-command</id>
+    <content type="html"><![CDATA[<p>Sencha Cmd is a command line tool code generator for ExtJS.
+It lets you create starter projects, deployment builds and a lot of more things
+with ease.</p>
+
+<p><strong>Download</strong>:
+<a href="http://www.sencha.com/products/sencha-cmd/download">http://www.sencha.com/products/sencha-cmd/download</a></p>
+
+<p><strong>Documentation</strong>:
+<a href="http://docs.sencha.com/ext-js/4-1/#!/guide/command">http://docs.sencha.com/ext-js/4-1/#!/guide/command</a></p>
+
+<!-- more -->
+
+
+<h2>Prerequisits</h2>
+
+<p>You need to have at least
+<a href="http://www.sencha.com/products/extjs/download/ext-js-4.1.1/1683">ExtJS 4.1.1a</a>
+downloaded.</p>
+
+<p>On my machine, I downloaded and unpacked it into
+<code>~/develop/js/Sencha/ext-4.1.1a</code></p>
+
+<p>You also need to have <code>ruby</code> prepared with <code>compass</code> and <code>sass</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ which ruby
+</span><span class='line'>/Users/rbartl/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
+</span><span class='line'>
+</span><span class='line'>$ ruby -v
+</span><span class='line'>ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-darwin11.3.0]
+</span><span class='line'>
+</span><span class='line'>$ gem list
+</span><span class='line'>
+</span><span class='line'>*** LOCAL GEMS ***
+</span><span class='line'>
+</span><span class='line'>compass (0.12.2)
+</span><span class='line'>sass (3.2.3)
+</span><span class='line'>[...]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Take a look into <code>rvm</code> which lets you manage local <code>ruby</code> installations with
+sandboxed gemsets:</p>
+
+<p><a href="https://rvm.io">https://rvm.io</a></p>
+
+<h2>The sencha command</h2>
+
+<p>After you installed Sencha Cmd, you should have the <code>sencha</code> command available
+in your terminal:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>which sencha
+</span><span class='line'>/Users/rbartl/bin/sencha
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are a bunch of arguments available, type <code>sencha help</code> to view them.</p>
+
+<h2>Bootstrapping a new application</h2>
+
+<p>Now we can use the <code>sencha generate</code> command to generate a new MVC like ExtJS App.
+<a href="http://extjs-4.1.1.dev/docs/index.html#!/guide/application_architecture">MVC Application Architecture</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>mkdir /tmp/account_manager
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /tmp/account_manager
+</span><span class='line'><span class="nv">$ </span>sencha -s ~/develop/js/Sencha/ext-4.1.1a generate app AM .
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command copies over the ExtJS library for us and generates a basic
+filesystem structure with example content.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>tree -L 2
+</span><span class='line'>.
+</span><span class='line'>├── app
+</span><span class='line'>│   ├── app.js
+</span><span class='line'>│   ├── controller
+</span><span class='line'>│   ├── model
+</span><span class='line'>│   ├── store
+</span><span class='line'>│   └── view
+</span><span class='line'>├── bootstrap.js
+</span><span class='line'>├── build.xml
+</span><span class='line'>├── ext
+</span><span class='line'>│   ├── bootstrap.js
+</span><span class='line'>│   ├── build.xml
+</span><span class='line'>│   ├── builds
+</span><span class='line'>│   ├── cmd
+</span><span class='line'>│   ├── ext-all-debug-w-comments.js
+</span><span class='line'>│   ├── ext-all-debug.js
+</span><span class='line'>│   ├── ext-all-dev.js
+</span><span class='line'>│   ├── ext-all.js
+</span><span class='line'>│   ├── ext-debug-w-comments.js
+</span><span class='line'>│   ├── ext-debug.js
+</span><span class='line'>│   ├── ext-dev.js
+</span><span class='line'>│   ├── ext-neptune-debug-w-comments.js
+</span><span class='line'>│   ├── ext-neptune-debug.js
+</span><span class='line'>│   ├── ext-neptune.js
+</span><span class='line'>│   ├── ext.js
+</span><span class='line'>│   ├── license.txt
+</span><span class='line'>│   ├── locale
+</span><span class='line'>│   ├── resources
+</span><span class='line'>│   └── src
+</span><span class='line'>├── index.html
+</span><span class='line'>└── resources
+</span><span class='line'>    ├── css
+</span><span class='line'>    ├── sass
+</span><span class='line'>    └── theme
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Serve the new App</h2>
+
+<p>A very simple way to serve your app is with this one-liner:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python -c <span class="s2">&quot;from SimpleHTTPServer import test;test()&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now open up a webbrowser of your choice and go to</p>
+
+<p><a href="http://localhost:8000">http://localhost:8000</a></p>
+
+<p>You should see an empty <a href="http://extjs-4.1.1.dev/docs/index.html#!/api/Ext.layout.container.Border">border layout</a>
+with a west and center area. The center area should contain a single tab titled &#8220;Center Tab 1&#8221;.</p>
+
+<p>Congratulations, you just build a sencha app with one command:)</p>
+
+<h2>Adding a model to the Application</h2>
+
+<p>As shown in the <a href="http://extjs-4.1.1.dev/docs/index.html#!/guide/application_architecture">MVC Application Architecture</a>
+tutorial, we&#8217;re going to add a user model with the following command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sencha generate model User id:int,name,email
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command adds a <code>Model.js</code> to your <code>app/model</code> directory.
+The content should look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;AM.model.User&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Ext.data.Model&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">fields</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;int&#39;</span> <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;auto&#39;</span> <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;auto&#39;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Adding a view to the Application</h2>
+
+<p>We would like to have a view for all the Users of our Application</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sencha generate view user.List
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will add a view stub called <code>List.js</code> in <code>app/view/user</code>.</p>
+
+<p>The content of this really basic:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">&quot;AM.view.user.List&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Ext.Component&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">html</span><span class="o">:</span> <span class="s1">&#39;Hello, World!!&#39;</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We have to change it to be useful:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;AM.view.user.List&#39;</span> <span class="p">,{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Ext.grid.Panel&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">alias</span><span class="o">:</span> <span class="s1">&#39;widget.userlist&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;All Users&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">store</span><span class="o">:</span> <span class="s1">&#39;Users&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">initComponent</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">columns</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>            <span class="p">{</span><span class="nx">header</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="nx">dataIndex</span><span class="o">:</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>  <span class="nx">flex</span><span class="o">:</span> <span class="mi">1</span><span class="p">},</span>
+</span><span class='line'>            <span class="p">{</span><span class="nx">header</span><span class="o">:</span> <span class="s1">&#39;Email&#39;</span><span class="p">,</span> <span class="nx">dataIndex</span><span class="o">:</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">flex</span><span class="o">:</span> <span class="mi">1</span><span class="p">}</span>
+</span><span class='line'>        <span class="p">];</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">callParent</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, we reference a store here called <code>Users</code>.
+There is no sencha command to create a store, so we&#8217;re going to add it manually.</p>
+
+<h2>Adding a store to the Application</h2>
+
+<p>Add a file <code>Users.js</code> to your <code>app/store</code> directory.
+The code should look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;AM.store.Users&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Ext.data.Store&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;AM.model.User&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">autoLoad</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">proxy</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ajax&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/data/users.json&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">reader</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">root</span><span class="o">:</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">successProperty</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the url for the data. it should be located at <code>/data/users.json</code>.</p>
+
+<p>Create the direcotry <code>data</code> in your application root folder and add the file
+<code>users.json</code> with the following contents:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;success&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="err">&#39;Ed&#39;</span><span class="p">,</span>    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;ed@sencha.com&quot;</span><span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="err">&#39;Tommy&#39;</span><span class="p">,</span> <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;tommy@sencha.com&quot;</span><span class="p">}</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Putting everything together</h2>
+
+<p>What do we have so far:</p>
+
+<ul>
+<li>A model, which is capable to hold a single user</li>
+<li>A store, which knows how to fetch the data from the server and how to store
+the data internally as instances of our user model</li>
+<li>A grid view, which knows the users store to display a list of users</li>
+<li>Fake data in <code>data/users.json</code></li>
+</ul>
+
+
+<p>Now we need to get it somehow on the screen.</p>
+
+<p>First we have to modify the <code>app.js</code> a little bit, so that it knows our store.
+It should look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">application</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">models</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nx">stores</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;Users&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nx">controllers</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;Main&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nx">views</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;user.List&quot;</span><span class="p">,</span><span class="s2">&quot;Main&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;AM&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">autoCreateViewport</span><span class="o">:</span> <span class="kc">true</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As we gave our view an <code>alias</code> property of <code>widget.userlist</code>, we can simply use
+the part after the dot directly as an <code>xtype</code> in our viewport:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;AM.view.Viewport&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">renderTo</span><span class="o">:</span> <span class="nx">Ext</span><span class="p">.</span><span class="nx">getBody</span><span class="p">(),</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Ext.container.Viewport&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">requires</span><span class="o">:</span><span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;Ext.tab.Panel&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;Ext.layout.container.Border&#39;</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">layout</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;border&#39;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">items</span><span class="o">:</span> <span class="p">[{</span>
+</span><span class='line'>        <span class="nx">region</span><span class="o">:</span> <span class="s1">&#39;west&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">xtype</span><span class="o">:</span> <span class="s1">&#39;panel&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;west&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">width</span><span class="o">:</span> <span class="mi">150</span>
+</span><span class='line'>    <span class="p">},{</span>
+</span><span class='line'>        <span class="nx">region</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">xtype</span><span class="o">:</span> <span class="s1">&#39;tabpanel&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">items</span><span class="o">:</span><span class="p">[{</span>
+</span><span class='line'>            <span class="nx">xtype</span><span class="o">:</span> <span class="s1">&#39;userlist&#39;</span>
+</span><span class='line'>        <span class="p">}]</span>
+</span><span class='line'>    <span class="p">}]</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After reloading, we should see two user entries in our grid.</p>
+
+<h2>Building a deployment package</h2>
+
+<p>Next step is to build an deployment package for our app.
+Open up the developer tools console of Google Chrome.</p>
+
+<p>Reload the application with the <code>Network</code> Tab opened.
+At the bottom of all the requests, there should be a line which shows something like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>217 requests  ❘  3.90MB transferred  ❘  1.32s (onload: 1.32s, DOMContentLoaded: 270ms)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Stop the local Python web server and type in the follwing commands</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sencha app build
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>build/AM/production
+</span><span class='line'><span class="nv">$ </span>ln -s ../../../data .
+</span><span class='line'><span class="nv">$ </span>python -c <span class="s2">&quot;from SimpleHTTPServer import test;test()&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Reload the application with the <code>Network</code> Tab opened.
+At the bottom of all the requests, there should be a line which shows something like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>8 requests  ❘  1.04MB transferred  ❘  601ms (onload: 373ms, DOMContentLoaded: 373ms)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>With the deployment version, we reduced the requests from 217 to 8 and the size
+is almost 4 times less than before.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using Tor on Mac]]></title>
