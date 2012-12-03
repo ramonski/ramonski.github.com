@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: web, | Ramonskis Blog]]></title>
-  <link href="http://ramonski.github.com/blog/categories/web-/atom.xml" rel="self"/>
+  <title><![CDATA[Category: mvc, | Ramonskis Blog]]></title>
+  <link href="http://ramonski.github.com/blog/categories/mvc-/atom.xml" rel="self"/>
   <link href="http://ramonski.github.com/"/>
   <updated>2012-12-03T15:47:26+01:00</updated>
   <id>http://ramonski.github.com/</id>
@@ -384,64 +384,6 @@ At the bottom of all the requests, there should be a line which shows something 
 
 <p>With the deployment version, we reduced the requests from 217 to 8 and the size
 is almost 4 times less than before.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using Tor on Mac]]></title>
-    <link href="http://ramonski.github.com/blog/2012/07/03/using-tor-on-mac/"/>
-    <updated>2012-07-03T19:00:00+02:00</updated>
-    <id>http://ramonski.github.com/blog/2012/07/03/using-tor-on-mac</id>
-    <content type="html"><![CDATA[<p>Anonymity Online on Mac with Tor</p>
-
-<!-- more -->
-
-
-<h1>Prerequisites</h1>
-
-<p>You need Homebrew on your Mac</p>
-
-<p>http://mxcl.github.com/homebrew</p>
-
-<h1>Installation</h1>
-
-<p>Installation using brew:</p>
-
-<p>``` bash</p>
-
-<pre><code>$ brew install tor
-</code></pre>
-
-<p>```</p>
-
-<p>You can start tor automatically on login with:</p>
-
-<p><code>bash
-mkdir -p ~/Library/LaunchAgents
-cp /usr/local/Cellar/tor/0.2.2.37/homebrew.mxcl.tor.plist ~/Library/LaunchAgents/
-launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
-</code></p>
-
-<h1>Running</h1>
-
-<p>Starting Tor in the foreground:</p>
-
-<p>``` bash</p>
-
-<pre><code>$ /usr/local/Cellar/tor/0.2.2.37/bin/tor
-</code></pre>
-
-<p>```</p>
-
-<h1>Configure SOCKS Proxy</h1>
-
-<p>Go to the Network Settings and configure the SOCKS Proxy to 127.0.0.1:9050</p>
-
-<p><img src="/downloads/images/socks-proxy.jpg"></p>
-
-<h1>Check</h1>
-
-<p>Just visit: https://check.torproject.org</p>
 ]]></content>
   </entry>
   

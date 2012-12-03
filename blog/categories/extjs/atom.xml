@@ -4,7 +4,7 @@
   <title><![CDATA[Category: extjs | Ramonskis Blog]]></title>
   <link href="http://ramonski.github.com/blog/categories/extjs/atom.xml" rel="self"/>
   <link href="http://ramonski.github.com/"/>
-  <updated>2012-12-03T15:35:45+01:00</updated>
+  <updated>2012-12-03T15:47:26+01:00</updated>
   <id>http://ramonski.github.com/</id>
   <author>
     <name><![CDATA[ramonski]]></name>
@@ -58,10 +58,31 @@ sass (3.2.3)
 [...]
 ```</p>
 
-<p>Take a look into <code>rvm</code> which lets you manage local <code>ruby</code> installations with
-sandboxed gemsets:</p>
+<p>Take a look into <a href="https://rvm.io">rvm</a>  which lets you manage local <code>ruby</code>
+installations with sandboxed gemsets.</p>
 
-<p><a href="https://rvm.io">https://rvm.io</a></p>
+<p><a href="https://rvm.io/rvm/install">rvm installation</a></p>
+
+<p>... in short:</p>
+
+<p>``` bash
+$ cd $HOME
+$ \curl -L https://get.rvm.io | bash -s stable --ruby
+$ source .rvm/bin/rvm</p>
+
+<p>$ rvm list</p>
+
+<p>rvm rubies</p>
+
+<p>=* ruby-1.9.3-p194 [ x86_64 ]</p>
+
+<h1>=> - current</h1>
+
+<h1>=* - current &amp;&amp; default</h1>
+
+<h1>* - default</h1>
+
+<p>```</p>
 
 <h2>The sencha command</h2>
 
