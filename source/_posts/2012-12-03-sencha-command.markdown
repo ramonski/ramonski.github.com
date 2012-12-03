@@ -3,7 +3,7 @@ layout: post
 title: "Introducing Sencha Cmd"
 date: 2012-12-03 11:49
 comments: true
-categories: web, extjs
+categories: web, javascript, mvc, extjs
 published: true
 ---
 
@@ -47,11 +47,28 @@ sass (3.2.3)
 [...]
 ```
 
-Take a look into `rvm` which lets you manage local `ruby` installations with
-sandboxed gemsets:
+Take a look into [rvm](https://rvm.io)  which lets you manage local `ruby`
+installations with sandboxed gemsets.
 
-[https://rvm.io](https://rvm.io)
+[rvm installation](https://rvm.io/rvm/install)
 
+... in short:
+
+``` bash
+$ cd $HOME
+$ \curl -L https://get.rvm.io | bash -s stable --ruby
+$ source .rvm/bin/rvm
+
+$ rvm list
+
+rvm rubies
+
+=* ruby-1.9.3-p194 [ x86_64 ]
+
+# => - current
+# =* - current && default
+#  * - default
+```
 
 ## The sencha command
 
