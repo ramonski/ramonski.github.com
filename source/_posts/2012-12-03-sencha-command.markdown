@@ -3,7 +3,7 @@ layout: post
 title: "Introducing Sencha Cmd"
 date: 2012-12-03 11:49
 comments: true
-categories: web, javascript, mvc, extjs
+categories: [web, javascript, mvc, extjs]
 published: true
 ---
 
@@ -188,7 +188,7 @@ $ sencha generate view user.List
 
 This will add a view stub called `List.js` in `app/view/user`.
 
-The content of this really basic:
+The output is really basic:
 
 ``` javascript
 Ext.define("AM.view.user.List", {
