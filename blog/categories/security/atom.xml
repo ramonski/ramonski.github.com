@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Security | Ramonskis Blog]]></title>
+  <link href="http://ramonski.github.com/blog/categories/security/atom.xml" rel="self"/>
+  <link href="http://ramonski.github.com/"/>
+  <updated>2013-10-20T13:13:49+02:00</updated>
+  <id>http://ramonski.github.com/</id>
+  <author>
+    <name><![CDATA[ramonski]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Credit Card misuse on iTunes Store seems to be pretty easy]]></title>
+    <link href="http://ramonski.github.com/blog/2013/10/20/credit-card-misuse-on-itunes-store-seems-to-be-pretty-easy/"/>
+    <updated>2013-10-20T09:37:00+02:00</updated>
+    <id>http://ramonski.github.com/blog/2013/10/20/credit-card-misuse-on-itunes-store-seems-to-be-pretty-easy</id>
+    <content type="html"><![CDATA[<p>It is already almost two years ago since I wrote a blog post about the
+misusage of my Credit Card over iTunes. At that time, I was pretty sure that
+someone hacked into my account and bought apps/music/whatever with my data
+stored in there.</p>
+
+<p>So I filed (pretty angry that time) this blog post under the title
+<a href="http://ramonski.de/blog/2012/04/26/itunes-store-hacked">iTunes Store hacked?</a>
+(german language only).</p>
+
+<p>But this apparently wasn't the case. I seemed to be much less sophisticated
+than I thought and is sadly still beeing pratised ...</p>
+
+<!--more-->
+
+
+<h2>The beginning (short story)</h2>
+
+<p>It was the 24th of April 2012 when I checked my online banking account and
+couldn't trust my eyes. There were several bookings from <strong>APPLE ITUNES STORE
+EUR/LUXEMBOURG</strong> with a total of already 160 € and it seemed that this flood
+of write-offs from my credit card just started and that there are more in the
+queue to get booked off my bank account.</p>
+
+<p><img src="/downloads/images/visa.jpg"></p>
+
+<p>In panic I checked my iTunes Store account and had already horror scenarios in
+my head about what else these guys will do with my theft personal data which
+is stored in there. But surprisingly I saw nothing suspicious in there.</p>
+
+<p>So I decided to block my credit card and write to the iTunes Store Support
+about this incident, which can be read in the <a href="http://ramonski.de/blog/2012/04/26/itunes-store-hacked">original blog post</a></p>
+
+<p>The end of the story was, that I got the money back, received a new credit
+card and changed my passwords almost everywhere...</p>
+
+<h2>The days after</h2>
+
+<p>A short time after I posted my story, other people wrote me via email or in
+the comments section that this happened to them as well. Some people told me
+that they got ripped off over 800 € and more.</p>
+
+<p>But it was the very first comment which openened my eyes what is really going
+on there. It wasn't the account which got hacked, it was simply my credit card
+data which got stolen and afterwards beeing used to create a new iTunes
+account to buy stuff from the iTunes Store. Probably contents like iPhone/iPad
+apps or books which they had released by themselves to get "real" money for
+the sold apps from Apple... What a clever idea ...</p>
+
+<p>But is it really that easy?</p>
+
+<p>Probably yes, this is how I would do that:</p>
+
+<h2>Steps to reproduce (theoretically/untested)</h2>
+
+<p><strong>Disclaimer</strong>:
+  This is only how I <em>thought</em> this could be reproduced and is not meant to be a
+  guide to do this in real. Actually, I don't know if it actually works that
+  way...</p>
+
+<ol>
+<li><p><strong>You need some valid credit card data.</strong></p>
+
+<p><em>My credit card data got probably stolen in a Hotel in Bangkok/Thailand.
+So I assume that places where people give their cards away to someone for
+payment are good places to grab the desired data with almost no effort
+(especially in Thailand and/or if you know someone who is working in such a
+position)</em></p></li>
+<li><p><strong>You need to create an iTunes account where you use this credit card.</strong></p>
+
+<p>https://appleid.apple.com/cgi-bin/WebObjects/MyAppleId.woa/wa/createAppleId</p>
+
+<p><em>There is no check if the credit card is already in use or if it actually
+belongs to you. So just add some of the credit card data gathered
+from step 1. Hint: repeat step 2 for each dataset from step 1</em></p></li>
+<li><p><strong>Download <a href="http://www.apple.com/de/ibooks-author/">iBooks Author</a> and
+publish some crappy content (use another account for that).</strong></p>
+
+<p><em>The advantage with this approach is that you don't need to participate
+on the Apple developer program. This saves 80 € and is much more simpler.</em></p></li>
+<li><p><strong>Buy this stuff with all of your credit card owned fake accounts.</strong></p></li>
+<li><p><strong>Get the money from Apple</strong></p>
+
+<p><em>probably only if the people don't recognize it early enough or your
+account gets locked</em></p></li>
+</ol>
+
+
+<h2>Ways to avoid this</h2>
+
+<p>After the first responses to my <a href="http://ramonski.de/blog/2012/04/26/itunes-store-hacked">first blog post</a>
+I thought about ways how to avoid the misuse of stolen credit card numbers within
+the iTunes store. I also decided to write an email to the Apple support
+describing my insights.</p>
+
+<ol>
+<li><strong>Check if the credit card is alredy in use by another account</strong></li>
+</ol>
+
+
+<p>``` python</p>
+
+<p>def is_credit_card_in_use(number):</p>
+
+<pre><code>if number in get_all_credit_card_numbers():
+    # credit card used by another account!
+    # get the accont and send a notification mail
+    # to this email to confirm.
+    ...
+</code></pre>
+
+<p>```</p>
+
+<ol>
+<li><p><strong>Check if the credit card holder is the owner and has access to the account.</strong></p>
+
+<p>This could be done by a 1 cent debit from this credit card with a generated
+<strong>UID in the reference field</strong> which has to be entered afterwards to <em>activate</em>
+the account. Probably this 1 Cent could be credited after account
+activation to this new created account or simply be donated to charities:)</p></li>
+</ol>
+
+
+<p>Neither one of the two insights have been replied/recognized by the Apple support.
+Probably this email has just made it directly to the trashcan, or printed out to
+be immediately shreddered.</p>
+
+<h2>Why is this still possible?</h2>
+
+<p>The last comment from a guy who faced the same problem was now 1 month ago. So
+it seems to be still possible to simply misuse payment data in the iTunes
+store.</p>
+
+<p>So I ask myself why this is still possible and came to the following
+assumptions:</p>
+
+<ul>
+<li><p>It is a calculated risk which is covered by the credit card insurances.</p></li>
+<li><p>Any kind of security is too complicated to the consumer - or - the time from
+account creation to the first possible electronic purchase is too long.</p></li>
+</ul>
+
+
+<h2>Conclusion</h2>
+
+<p>It seems to be pretty easy to abuse credit card payment to quickly get your
+low quality and overpriced crap-app on the road.</p>
+
+<p><strong>And ironically:</strong> You can give your app 5 star ratings with your fake
+accounts so that others buy it as well.</p>
+
+<p>If I would have more criminal energies, I would give that definitely a shot..</p>
+
+<p>So for the time being, check your credit card account in a regular manner and
+don't be too afraid if you have write offs from APPLE ITUNES on your account.</p>
+
+<p>Just lock your credit card, you'll get your money back, thats the reason why
+we pay for having a credit card, to be insured when somtehing like this
+happens:)</p>
+
+<p>Cheers ramonski</p>
+]]></content>
+  </entry>
+  
+</feed>
