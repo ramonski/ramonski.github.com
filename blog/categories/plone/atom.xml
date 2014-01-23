@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Plone | Ramonskis Blog]]></title>
+  <link href="http://ramonski.github.com/blog/categories/plone/atom.xml" rel="self"/>
+  <link href="http://ramonski.github.com/"/>
+  <updated>2014-01-23T21:28:35+01:00</updated>
+  <id>http://ramonski.github.com/</id>
+  <author>
+    <name><![CDATA[ramonski]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The need for APIs - or why I built a JSON API for the Plone CMS]]></title>
+    <link href="http://ramonski.github.com/blog/2014/01/23/the-need-for-apis-or-why-i-built-a-json-api-for-the-plone-cms/"/>
+    <updated>2014-01-23T15:30:00+01:00</updated>
+    <id>http://ramonski.github.com/blog/2014/01/23/the-need-for-apis-or-why-i-built-a-json-api-for-the-plone-cms</id>
+    <content type="html"><![CDATA[<p>I started with <a href="http://plone.org">Plone</a> development already 8 years ago and I
+was really enthusiastic in the beginning of that time as it was real fun to
+develop for this great system. I have been a real Plone/Python/Backend-Developer
+guy these days.</p>
+
+<p>But somehow over the years something changed and more and more I lost the
+interest on Plone ...</p>
+
+<!-- more -->
+
+
+<p>What happened here or why did I feel this disfavour?</p>
+
+<p>I really <strong>don't</strong> think that Plone is a bad system, it is quite the opposite.
+In my opinion it has grown to an almost feature complete flagship in the open
+source CMS world, where people get a lot of cool stuff just out of the box.
+There are also quite a lot of high quality add-ons which can extend the
+functionality and thus, it leaves almost now customer wishes open.</p>
+
+<p>It was more the thing that Plone felt sort of clumsy and obsolete to me. It is
+not that kind of a web system you roll out for a small customer solution where
+you only need a tiny set of the given features. No, it is for enterprise
+solutions where the customer needs a training how to use the system and also a
+maintenance plan for the operational support.</p>
+
+<p>It was also the fact that Plone sites always look like Plone sites. It doesn't
+matter what you do or how much effort you put into the CSS or design. Over the
+years you really get an eye for that...</p>
+
+<p>So what do you need when you want to use some of the features of Plone without
+the need for the users to face the Plone site at all? Yes. You need a Web API!</p>
+
+<p>But somehow this feature never made it into Plone? Why? I don't know.</p>
+
+<p>I started to built a package called
+<a href="https://github.com/ramonski/plone.jsonapi.core">plone.jsonapi.core</a> which
+should just serve my needs as I wanted to learn iOS programming and wanted to
+knit my own web API. I never released the apps I built but after all I knew
+some Cocoa and ObjectiveC programming:)</p>
+
+<p>Some time ago we (<a href="http://nexiles.com">nexiles GmbH</a>) started a new customer
+project and decided to use Plone after years again. But it should serve more as
+the backend system in this project than the actual place to work on. The users
+should not face the Plone UI at all. The whole UI should be realized in
+<a href="http://sencha.com">ExtJS</a> and it also should be easy to use and fast (even in
+IE 8).</p>
+
+<p>So I digged out the
+<a href="https://github.com/ramonski/plone.jsonapi.core">plone.jsonapi.core</a> package
+and built a complete JSON API for the customer on top of it. That meant to
+view, create, update and delete the contents through this API.</p>
+
+<p>Believe me, it was more than one time that I thought "Why didn't we use
+<a href="http://flask.pocoo.org">flask</a> or <a href="http://djangoproject.com/">django</a>?"
+And of course it was more than one time I was swearing like a trooper:)</p>
+
+<p>But the project has almost finished today and I ported the functionality of the
+customers API to an open source project called
+<a href="https://github.com/ramonski/plone.jsonapi.routes">plone.jsonapi.routes</a>.</p>
+
+<p>Hopefully this will help some other web developers to build modern, fast and
+intuitive applications on top of Plone without the need to understand how Plone
+development works at all. And maybe it will get back other developers to use
+Plone who felt like me:)</p>
+
+<p>I think it is an absolute <strong>requirement</strong> for modern web systems to provide a
+sophisticated web interface for their users. Without it they will sooner or
+later die because they loose their developers and obstruct the possibility that
+JavaScript UI designers will use the systems at all.</p>
+
+<p>It is absolute clear to me that the solution I provided is awkward and just a
+patchwork, but maybe this functionality will make it into Plone one day and for
+the time being, the patchwork will be there:)</p>
+
+<p>You can find the packages here:</p>
+
+<ul>
+<li><a href="https://github.com/ramonski/plone.jsonapi.core">https://github.com/ramonski/plone.jsonapi.core</a></li>
+<li><a href="https://github.com/ramonski/plone.jsonapi.routes">https://github.com/ramonski/plone.jsonapi.routes</a></li>
+</ul>
+
+
+<p>and of course on the Python Package Index:</p>
+
+<ul>
+<li><a href="https://pypi.python.org/pypi/plone.jsonapi.core">https://pypi.python.org/pypi/plone.jsonapi.core</a></li>
+<li><a href="https://pypi.python.org/pypi/plone.jsonapi.routes">https://pypi.python.org/pypi/plone.jsonapi.routes</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

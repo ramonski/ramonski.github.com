@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: JavaScript Mac Shell | Ramonskis Blog]]></title>
-  <link href="http://ramonski.github.com/blog/categories/javascript-mac-shell/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Shell | Ramonskis Blog]]></title>
+  <link href="http://ramonski.github.com/blog/categories/shell/atom.xml" rel="self"/>
   <link href="http://ramonski.github.com/"/>
-  <updated>2013-10-20T13:13:49+02:00</updated>
+  <updated>2014-01-23T21:28:35+01:00</updated>
   <id>http://ramonski.github.com/</id>
   <author>
     <name><![CDATA[ramonski]]></name>
