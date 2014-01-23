@@ -4,7 +4,7 @@
   <title><![CDATA[Category: API | Ramonskis Blog]]></title>
   <link href="http://ramonski.github.com/blog/categories/api/atom.xml" rel="self"/>
   <link href="http://ramonski.github.com/"/>
-  <updated>2014-01-23T21:28:35+01:00</updated>
+  <updated>2014-01-23T21:31:39+01:00</updated>
   <id>http://ramonski.github.com/</id>
   <author>
     <name><![CDATA[ramonski]]></name>
@@ -35,7 +35,7 @@ interest on Plone ...</p>
 In my opinion it has grown to an almost feature complete flagship in the open
 source CMS world, where people get a lot of cool stuff just out of the box.
 There are also quite a lot of high quality add-ons which can extend the
-functionality and thus, it leaves almost now customer wishes open.</p>
+functionality of Plone and leaves almost no customer wishes open.</p>
 
 <p>It was more the thing that Plone felt sort of clumsy and obsolete to me. It is
 not that kind of a web system you roll out for a small customer solution where

@@ -34,11 +34,11 @@
         <loc>
             http://ramonski.github.com/blog/2014/01/23/the-need-for-apis-or-why-i-built-a-json-api-for-the-plone-cms/
         </loc>
-        <lastmod>2014-01-23T21:27:30+01:00</lastmod>
+        <lastmod>2014-01-23T21:30:37+01:00</lastmod>
     </url>
     <url>
         <loc>http://ramonski.github.com/blog/archives/</loc>
-        <lastmod>2014-01-23T21:27:30+01:00</lastmod>
+        <lastmod>2014-01-23T21:30:37+01:00</lastmod>
     </url>
     <url>
         <loc>http://ramonski.github.com/imprint/</loc>
@@ -46,6 +46,6 @@
     </url>
     <url>
         <loc>http://ramonski.github.com/</loc>
-        <lastmod>2014-01-23T21:27:30+01:00</lastmod>
+        <lastmod>2014-01-23T21:30:37+01:00</lastmod>
     </url>
 </urlset>
